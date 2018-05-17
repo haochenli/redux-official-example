@@ -1,5 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { setVisibilityFilter } from '../actions'
+
+
+const mapStateToProps = (state, ownProps) => ({
+  active: ownProps.filter === state.visibilityFilter
+})
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  onClick: () => {
+    dispatch(setVisibilityFilter(ownProps.filter))
+  }
+})
 
 const Link = ({ active, children, onClick }) => {
   if (active) {
@@ -16,10 +29,15 @@ const Link = ({ active, children, onClick }) => {
   )
 }
 
+const FilterLink = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Link)
+
 Link.propTypes = {
   active: PropTypes.bool.isRequired,
   children: PropTypes.node.isRequired,
   onClick: PropTypes.func.isRequired
 }
 
-export default Link
+export default FilterLink
