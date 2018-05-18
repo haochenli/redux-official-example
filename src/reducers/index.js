@@ -8,3 +8,12 @@ export default function todoApp(state = {}, action) {
     todos: todos(state.todos, action)
   }
 }
+
+
+
+// const todoApp = combineReducers({
+//   visibilityFilter,
+//   todos
+// })
+// ​
+// export default todoApp
