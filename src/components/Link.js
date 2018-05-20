@@ -20,7 +20,7 @@ const Link = ({ active, children, onClick }) => {
   }
 
   return (
-    <a href="#" onClick={e => { // eslint-disable-line jsx-a11y/href-no-hash
+    <a className='Link' href="#" onClick={e => { // eslint-disable-line jsx-a11y/href-no-hash
       e.preventDefault()
       onClick()
     }}>
